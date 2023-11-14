@@ -1,7 +1,7 @@
 <template>
   <div class="w-11/12 lg:w-10/12  mx-auto px-2">
 
-    <Form method="post" action="https://formsubmit.co/yoxep54515@mainmile.com" :validation-schema="defineRule">
+    <Form method="post" action="https://formsubmit.co/daniel.rubens@cadmus.com.br" :validation-schema="schema">
       <input type="hidden" name="_next" value="https://www.uol.com.br/">
       <div class="">
         <Field name="name" type="text"
