@@ -73,3 +73,51 @@ const props = defineProps({
 </script>
 
 <style></style>
+    <!--  <Form v-slot="{ meta }">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mt-7">
+          <div class="">
+            <Field name="name" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+              placeholder="Seu nome" rules="required" />
+            <ErrorMessage name="name" class="text-red-500 text-sm" />
+          </div>
+
+          <div>
+            <Field name="email" type="email"
+              class="appearance-none block w-full bg-gray-200 text-gray border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+              placeholder="Seu e-mail" rules="required|email" />
+            <ErrorMessage name="email" class="text-red-500 text-sm" />
+          </div>
+
+          <div>
+            <Field name="assunto" type="text"
+              class="appearance-none block w-full bg-gray-200 text-gray border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+              placeholder="Assunto" rules="required" />
+            <ErrorMessage name="assunto" class="text-red-500 text-sm" />
+          </div>
+
+          <div>
+            <Field v-maska data-maska="(##) #####-####" type="tel" name="phone" id="phone"
+              class="appearance-none block w-full bg-gray-200 text-gray border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+              placeholder="(XX) XXXX-XXXX" rules="required|phone" />
+            <ErrorMessage name="phone" class="text-red-500 text-sm" />
+          </div>
+        </div>
+
+        <div class="py-6">
+          <Field as="textarea" name="message" id="message"
+            class="appearance-none block w-full bg-gray-200 text-gray border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            placeholder="Sua mensagem" rows="6" rules="required" />
+          <ErrorMessage name="message" class="text-red-500 text-sm" />
+        </div>
+
+        <button type="submit" :class="{
+          'bg-red-500 hover:brightness-95': !meta.valid || meta.$pending,
+          'bg-blue-500 hover:brightness-95': meta.valid && !meta.$pending
+        }" :disabled="!meta.valid || meta.$pending"
+          class="inline-block w-full rounded-lg mt-6 transition duration-300 ease-in-out px-10 py-3 text-lg text-white font-bold sm:w-auto">
+          Enviar
+        </button>
+
+      </Form> -->
+  
