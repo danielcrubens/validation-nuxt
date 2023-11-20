@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="mb-5">
+        <div class="my-5">
           <Field
             class="appearance-none block w-full bg-gray-200 text-gray border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             as="textarea" name="message" placeholder="Sua mensagem" v-model="form.message" rows="6" rules="required" />
@@ -42,32 +42,38 @@
         </div>
 
         <button
-          class="inline-block bg-blue-500 w-full rounded-lg mt-6 transition duration-300 ease-in-out px-10 py-3 text-lg text-white font-bold sm:w-auto"
+          class="inline-block bg-blue-500 w-full outline-none rounded-lg mt-6 transition duration-300 ease-in-out px-10 py-3 text-lg text-white font-bold sm:w-auto"
           type="submit">
           <template v-if="waiting">Enviando 📩</template>
           <template v-if="!waiting">Enviar</template>
         </button>
       </Form>
-
-      <p v-if="showError" class="text-red-500">Falha ao enviar o formulário.</p>
-
-
-    </div>
-    <div v-if="success" :class="{ 'fade-out': fadeOut }"
-      class="bg-teal-100 w-6/6 position absolute top-1 right-0 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
-      role="alert">
-      <div class="flex">
-        <p class="text-green-500">Formulário enviado com sucesso!</p>
-        <div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
   
-
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
+import { useToast } from 'vue-toastification';
+
+const showToastSuccess = () => {
+  const toast = useToast();
+  toast.success('Formulário enviado com sucesso!', {
+    position: 'top-right',
+    pauseOnFocusLoss: false,
+    pauseOnHover: false,
+
+  });
+};
+
+const showToasError = () => {
+  const toast = useToast();
+  toast.error('Falha ao enviar o formulário.', {
+    position: 'top-right',
+    pauseOnFocusLoss: false,
+    pauseOnHover: false,
+  });
+};
 
 const form = ref({
   name: '',
@@ -80,8 +86,6 @@ const form = ref({
 const errors = ref(false);
 const success = ref(false);
 const waiting = ref(false);
-
-const showError = computed(() => errors.value && !success.value);
 
 function onFormSubmit() {
   // Aqui o Vee Validate automaticamente valida o formulário
@@ -114,7 +118,9 @@ async function sendFormData() {
         phone: '',
         message: '',
       };
+      showToastSuccess();
     } else {
+      showToasError();
       throw new Error('Failed to submit');
     }
   } catch (error) {
@@ -126,13 +132,3 @@ async function sendFormData() {
 }
 </script>
 
-<style>
-.fade-out {
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
-}
-
-.fade-out.fade-out-animation {
-  opacity: 0;
-}
-</style>

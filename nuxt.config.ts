@@ -18,5 +18,8 @@ export default defineNuxtConfig({
     MAILUSER: process.env.MAILUSER,
     MAILPASSWORD: process.env.MAILPASSWORD,
     CONTACTMAIL: process.env.CONTACTMAIL
+  },
+  build: {
+    transpile: ['vue-toastification']
   }
 })
