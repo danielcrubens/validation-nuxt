@@ -45,6 +45,7 @@
         <template v-if="!waiting">Enviar</template>
       </button>
     </Form>
+
     <p v-if="showError" class="text-red-500">Falha ao enviar o formulário.</p>
     <p v-if="success" class="text-green-500">Formulário enviado com sucesso!</p>
 
